@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- The publisher talks only to the Swarm node you configure (any address) and the optional live broker. No third-party scripts, fonts or analytics. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' blob:; connect-src *; base-uri 'none'; form-action 'none'" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Parcha · Publish</title>
+</head>
+<body>
+  <a class="skip" href="#app">Skip to content</a>
+  <div id="banner"></div>
+  <main id="app" tabindex="-1"><p>Loading…</p></main>
+  <div id="toast" aria-live="polite"></div>
+  <noscript><p style="padding:1rem">Parcha needs JavaScript.</p></noscript>
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>

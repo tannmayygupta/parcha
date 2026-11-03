@@ -1,0 +1,9 @@
+node_modules
+dist
+dist-reader
+.env
+.env.*
+!.env.example
+*.keystore.json
+src/generated/reader-files.ts
+.mock-bee

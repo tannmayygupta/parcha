@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- The reader makes no third-party requests: everything it needs is inside this snapshot.
+       wss: is allowed only for the optional live channel. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self' wss:; base-uri 'none'; form-action 'none'" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Loading…</title>
+  <link rel="stylesheet" href="./reader.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="masthead" id="masthead"></header>
+  <div id="banners" aria-live="polite"></div>
+  <main id="main" tabindex="-1"><p class="muted">Loading the latest stories from Swarm…</p></main>
+  <footer id="footer"></footer>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <noscript><p style="padding:1rem">This page needs JavaScript to load stories from Swarm. Your browser has it turned off.</p></noscript>
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>
