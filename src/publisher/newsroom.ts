@@ -150,8 +150,8 @@ export class Newsroom {
           markdown: w.markdown,
         };
         if (w.image) post.image = w.image;
+        // Retracting adds a notice. Publishing the story again (no retract option) deliberately clears it.
         if (opts.retract !== undefined) post.retracted = { at: now, note: opts.retract.trim() || "This story has been retracted." };
-        else if (p.live?.retracted) post.retracted = p.live.retracted;
         out.push(post);
       } else if (p.live) {
         out.push(p.live);

@@ -142,6 +142,18 @@ describe("newsroom workflow end to end (mock Bee)", () => {
     expect(out.version).toBe(nr.site.version + 1);
   });
 
+  it("publishing a retracted story again clears the retraction; other stories keep theirs", async () => {
+    expect(statusOf(nr.get(b)!)).toBe("retracted");
+    // re-publishing another story must not silently un-retract b
+    await publishStory(deps, { id: a });
+    expect(statusOf(nr.get(b)!)).toBe("retracted");
+    // but publishing b itself again does
+    await publishStory(deps, { id: b });
+    expect(statusOf(nr.get(b)!)).toBe("live");
+    const idx = await client.fetchPosts(nr.site.manifest!);
+    expect(idx.posts.find((p) => p.id === b)?.retracted).toBeUndefined();
+  });
+
   it("restore refuses a link that belongs to someone else's key", async () => {
     await expect(restoreFromLink(client, nr.site.manifest!, addressOf(generateKey()))).rejects.toThrow(/different key/);
   });
